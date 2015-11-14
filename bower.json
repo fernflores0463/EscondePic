@@ -1,0 +1,34 @@
+{
+  "name": "EscondePic",
+  "homepage": "https://github.com/fernflores0463/EscondePic",
+  "authors": [
+    "Dor-Ron <dor.rondel@gmail.com>",
+    "jchen2186 <jane.chen@macaulay.cuny.edu>",
+    "jspann <thedeveloper4@gmail.com>",
+    "renzhentaxi <renzhentaxi.baerde@gmail.com>"
+  ],
+  "description": "Steganographic Web App to hide/reveal text in images",
+  "main": "index.html",
+  "moduleType": [],
+  "keywords": [
+    "Python",
+    "HTML",
+    "CSS",
+    "Bootstrap",
+    "LESS",
+    "Steganography",
+    "Bower"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "~2.1.4",
+    "bootstrap": "~3.3.5"
+  }
+}

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<!--[if lt IE 9]><html class="lt-ie9" lang="en"><![endif]-->
+<!--[if gte IE 9]><!-->
+<html lang="en">
+<!--<![endif]-->
+	<head>
+		<meta charset="UTF-8" />
+		<title>{% block title%}{% endblock %} | EscondePic</title>
+		<link rel="shortcut icon" type="image/x-icon" href="{{ url_for('static', filename='img/favicon.ico') }}">
+		<meta name="description" content="Steganographic Web App to hide/reveal text in images" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="language" content="english">
+    <meta name="keywords" content="Steganography, Cryptography, HackRPI 2015" />
+		<meta name="author" content="Dor Rondel, Jane Chen, James Spann, Renzhentaxi Baerde" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+		<link rel="stylesheet" href="{{ url_for('static', filename='bower_components/bootstrap/dist/css/bootstrap.min.css') }}" />
+	</head>
+
+	<body>
+			{% block body %}{% endblock %}
+      <script src="{{ url_for('static', filename='bower_components/bootstrap/dist/js/bootstrap.min.js') }}"></script>
+      <script src="{{ url_for('static', filename='bower_components/jquery/dist/jquery.min.js') }}"></script>
+  </body>
+</html>
