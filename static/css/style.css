@@ -14,8 +14,10 @@ footer {
     background: url(http://www.icedgraphics.com/wp-content/uploads/2012/02/grey-background.jpg);
     background-size: cover;
     margin-top: 0px;
-    padding-top: 50px;
-    padding-bottom: 50px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    text-align: center;
+    color: #000;
 }
 
 .logo {
