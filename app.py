@@ -2,18 +2,58 @@
 
 __authors__ = [
     "Dor Rondel",
-    "James Spann",
     "Jane Chen",
-    "Renzhentaxi Baerde"
+    "Renzhentaxi Baerde",
+    "James Spann"
 ]
 
-from flask import Flask, render_template
+from flask import (Flask, redirect, g, url_for, render_template,
+                    send_from_directory, request)
+from werkzeug import secure_filename
+import encrypt
+import os
+#from forms import HideForm, RevealForm
+
+'''''''''''''''''''''''''''''''''''''''''
+'''''''''''''''' Setup ''''''''''''''''''
+'''''''''''''''''''''''''''''''''''''''''
+
+UPLOAD_FOLDER = '/home/dor/CompSci/webdev/deletemebruh'
+ALLOWED_EXTENSIONS = set(['txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif'])
 
 app = Flask(__name__)
+app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
+app.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024
 
-@app.route('/')
-def index():
-    return render_template('index.html', text="Hello HackRPI")
+
+'''''''''''''''''''''''''''''''''''''''''
+'''''''''''''''''''APP ''''''''''''''''''
+'''''''''''''''''''''''''''''''''''''''''
+
+def allowed_file(filename):
+    return '.' in filename and \
+           filename.rsplit('.', 1)[1] in ALLOWED_EXTENSIONS
+
+@app.route('/', methods=['GET', 'POST'])
+def upload_file():
+    if request.method == 'POST':
+        file = request.files['file']
+        message = request.form['user-message']
+        print message
+        if file and allowed_file(file.filename):
+            filename = secure_filename(file.filename)
+            file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+            return redirect(url_for('uploaded_file',
+                                    filename=filename))
+    return render_template('index.html')
+
+@app.route('/uploads/<filename>/')
+def uploaded_file(filename):
+    #add encryption
+    return send_from_directory(app.config['UPLOAD_FOLDER'],
+                               filename)
+
+
 
 @app.route('/result')
 def result():
@@ -30,7 +70,6 @@ def revealMessage():
 @app.errorhandler(404)
 def page_not_found(e):
     return render_template("404.html")
-
 
 @app.errorhandler(500)
 def internal_error(e):
