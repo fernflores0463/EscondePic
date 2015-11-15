@@ -10,7 +10,7 @@ __authors__ = [
 from flask import (Flask, redirect, g, url_for, render_template,
                     send_from_directory, request)
 from werkzeug import secure_filename
-import encrypt
+from encrypt import *
 import os
 #from forms import HideForm, RevealForm
 
@@ -18,7 +18,7 @@ import os
 '''''''''''''''' Setup ''''''''''''''''''
 '''''''''''''''''''''''''''''''''''''''''
 
-UPLOAD_FOLDER = '/home/dor/CompSci/webdev/deletemebruh'
+UPLOAD_FOLDER = '/home/dor/CompSci/github/EscondePic'
 ALLOWED_EXTENSIONS = set(['txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif'])
 
 app = Flask(__name__)
@@ -39,10 +39,16 @@ def upload_file():
     if request.method == 'POST':
         file = request.files['file']
         message = request.form['user-message']
-        print message
+        password = request.form['user-password']
         if file and allowed_file(file.filename):
             filename = secure_filename(file.filename)
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+            if message and password:
+                encrypt(file.filename, message, password, outputName=file.filename)
+            elif message is None or message == "":
+                decrypt(file, password)
+                print decrypt(file.filename, password)
+            else: pass
             return redirect(url_for('uploaded_file',
                                     filename=filename))
     return render_template('index.html')

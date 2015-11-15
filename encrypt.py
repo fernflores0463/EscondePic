@@ -63,9 +63,4 @@ def decrypt(picture, password="123456789"):
         msg += chr(RGB2num(pix[xLoc[i], yLoc[i]]))
     return msg
 
-
-## test
-
-encrypt("cat.jpg", "a" * 255, outputName="regular.png")
-
-print (decrypt("regular.png"))
+print decrypt("tashi_dick_game.png", "super_secret_password")
