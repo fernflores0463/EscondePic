@@ -42,9 +42,23 @@ ul {
     text-align: center;
 }
 
+#dialogue {
+  margin-top: -200px;
+  margin-left: -155px;
+}
+
+#comic {
+  margin: 0 auto;
+}
+
+#goblin {
+  margin-bottom: -50px;
+}
+
 #desc {
   text-align: center;
   color: #99c089;
+  padding-bottom: 60px;
 }
 
 .btn-primary {

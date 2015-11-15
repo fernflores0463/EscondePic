@@ -23,6 +23,11 @@
 	<h3> Hide secret messages from your friends. </h3>
 	<h3> Uncover hidden messages sent to you. </h3>
 	<h3> Go under the radar! </h3>
+	<br/><br/><br/>
+	<div id="comic">
+		<img id="goblin" src="{{ url_for('static', filename='img/hidden_message.png')}} "/>
+		<img id="dialogue"src="{{ url_for('static', filename='img/dialogue.gif')}}" />
+	</div>
 </div>
 <div id="buttons" class="jumbotron row">
 	<div class="col-md-6" style="margin-left: 200px;">
@@ -35,7 +40,7 @@
     <p>Discover the secret your friend tried to pass on to you.</p>
   </div>
 </div>
-<footer>
-  Made by Dor Rondel, Jane Chen, James Spann, Renzhentaxi Baerde. 
+<footer style="col">
+  Made by Dor Rondel, Jane Chen, James Spann, Renzhentaxi Baerde for Hack(RPI); 2k15
 </footer>
 {% endblock %}
