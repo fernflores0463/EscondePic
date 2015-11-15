@@ -51,7 +51,7 @@
         <h4 class="modal-title" id="exampleModalLabel">Enter your secret message and super safe password</h4>
       </div>
       <div class="modal-body">
-        <form>
+        <form action='' method="post" enctype=multipart/form-data>
 					<div class="form-group">
 						<label for="message-text" class="control-label">Message:</label>
 						<textarea class="form-control" id="message-text"></textarea>
@@ -60,18 +60,14 @@
             <label class="control-label">Password:</label>
             <input type="text" class="form-control" id="recipient-name">
           </div>
-					<div style="position:relative;">
-						<a class='btn btn-primary' href='javascript:;'>
-							Choose File...
-							<input type="file" style='position:absolute;z-index:2;top:0;left:0;filter: alpha(opacity=0);-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";opacity:0;background-color:transparent;color:transparent;' name="file_source" size="40"  onchange='$("#upload-file-info").html($(this).val());'>
-						</a>
+					<div style="position:relative; text-align: center;">
+							<p><input type=file name=file class="">
+								 <br/>
+				         <input type="submit" class="btn btn-primary" value="Hide message">
 						&nbsp;
 						<span class='label label-info' id="upload-file-info"></span>
 					</div>
         </form>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-primary">Hide message</button>
       </div>
     </div>
   </div>
@@ -90,25 +86,19 @@
             <label class="control-label">Password:</label>
             <input type="text" class="form-control" id="recipient-name">
           </div>
-					<div style="position:relative;">
-						<a class='btn btn-primary' href='javascript:;'>
-							Choose File...
-							<input type="file" style='position:absolute;z-index:2;top:0;left:0;filter: alpha(opacity=0);-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";opacity:0;background-color:transparent;color:transparent;' name="file_source" size="40"  onchange='$("#upload-file-info").html($(this).val());'>
-						</a>
+					<div style="position:relative; text-align: center;">
+							<p><input type=file name=file class="">
+								 <br/>
+				         <input type="submit" class="btn btn-primary" value="Reveal message">
 						&nbsp;
 						<span class='label label-info' id="upload-file-info"></span>
 					</div>
+					</div>
         </form>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-primary">Reveal message</button>
       </div>
     </div>
   </div>
 </div>
-<footer>
-  Made by Dor Rondel, Jane Chen, James Spann, Renzhentaxi Baerde for Hack(RPI); 2k15
-</footer>
 {% endblock %}
 
 {% block javascript %}
