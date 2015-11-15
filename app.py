@@ -15,6 +15,14 @@ app = Flask(__name__)
 def index():
     return render_template('index.html', text="Hello HackRPI")
 
+@app.route('/result')
+def result():
+    return render_template('result.html', text="Hello HackRPI")
+
+@app.route('/reveal')
+def revealMessage():
+    return render_template('reveal.html', text="Hello HackRPI")
+
 ########################################
 ############ Error Handling ############
 ########################################

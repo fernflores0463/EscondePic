@@ -1,0 +1,20 @@
+{% extends 'layout.html' %}
+
+{% block title %} Result {% endblock %}
+
+{% block stylesheet %}
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+	<link href='http://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'/>
+{% endblock %}
+
+{% block body %}
+	<body style="background-color: #dff0d8">
+	<div id="imageDiv">
+		<img id="uploadedImage" src="{{ userimage }}"></img>
+	</div>
+
+	<div class="alert alert-success" role="alert" style="text-align: center;">
+		<strong>Success!</strong> Share your secret message with a friend!<br>(Psst... don't forget the password!)
+	</div>
+
+{% endblock %}
