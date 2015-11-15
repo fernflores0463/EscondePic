@@ -92,15 +92,13 @@ fieldset[disabled] .btn-primary.active {
 	background-color: #ffffff;
 }
 
-.left {
+#left {
   float: left;
-  width: 50%;
   text-align: center;
 }
 
-.right {
+#right {
   float: right;
-  width: 50%;
   text-align: center;
 }
 
