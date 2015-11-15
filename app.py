@@ -18,7 +18,7 @@ import os
 '''''''''''''''' Setup ''''''''''''''''''
 '''''''''''''''''''''''''''''''''''''''''
 
-UPLOAD_FOLDER = '/home/dor/CompSci/github/EscondePic'
+UPLOAD_FOLDER = '/home/dor/CompSci/github/EscondePic/'
 ALLOWED_EXTENSIONS = set(['txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif'])
 
 app = Flask(__name__)
@@ -55,11 +55,11 @@ def upload_file():
 
 @app.route('/uploads/<filename>/')
 def uploaded_file(filename):
-    #add encryption
-    return send_from_directory(app.config['UPLOAD_FOLDER'],
-                               filename)
+    return render_template("result.html", userimage="/shabat_shalom.png")
 
-
+@app.route('/reveal/')
+def reveal():
+    return render_template("reveal.html")
 
 ########################################
 ############ Error Handling ############
