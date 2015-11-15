@@ -1,5 +1,7 @@
+
 from PIL import Image
 import random
+import randomImage
 
 def get_seed(password):
     seed = 0
@@ -15,6 +17,7 @@ def num2rgba(num, rgba):
 
 def rgba2num(rgb):
     i = 255 - rgb[3]
+    print(i)
     return rgb[i]
 
 
@@ -34,10 +37,11 @@ def get_variables(image):
 def get_xy_loc(width, height, length):
     return random.sample(xrange(width - 2), length), random.sample(xrange(height - 2), length)
 
+
 def encrypt(image, msg, password="123456789", output_name="encrypted.png"):
     random.seed(get_seed(password))
     if type(image) == str:
-        image = Image.open(image).convert("RGBA")
+        image = Image.open(image).convert("RGB").convert("RGBA")
 
     width, height, pix = get_variables(image)
     length = len(msg)
@@ -66,3 +70,5 @@ def decrypt(image, password="123456789"):
     for i in xrange(length):
         msg += chr(rgba2num(pix[xLoc[i], yLoc[i]]))
     return msg
+
+
