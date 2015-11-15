@@ -12,6 +12,7 @@ from flask import (Flask, redirect, g, url_for, render_template,
 from werkzeug import secure_filename
 import encrypt
 import os
+#from forms import HideForm, RevealForm
 
 '''''''''''''''''''''''''''''''''''''''''
 '''''''''''''''' Setup ''''''''''''''''''
@@ -37,6 +38,8 @@ def allowed_file(filename):
 def upload_file():
     if request.method == 'POST':
         file = request.files['file']
+        message = request.form['user-message']
+        print message
         if file and allowed_file(file.filename):
             filename = secure_filename(file.filename)
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
@@ -49,6 +52,8 @@ def uploaded_file(filename):
     #add encryption
     return send_from_directory(app.config['UPLOAD_FOLDER'],
                                filename)
+
+
 
 ########################################
 ############ Error Handling ############
