@@ -61,6 +61,10 @@ ul {
   padding-bottom: 60px;
 }
 
+#btnInfo {
+  size: 15px;
+}
+
 .btn-primary {
     color: #ffffff;
     background-color: #99c089;
@@ -107,12 +111,12 @@ fieldset[disabled] .btn-primary.active {
 }
 
 #left {
-  float: left;
+  width: 150px;
   text-align: center;
 }
 
 #right {
-  float: right;
+  width: 150px;
   text-align: center;
 }
 
