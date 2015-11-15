@@ -32,17 +32,106 @@
 <div id="buttons" class="jumbotron row">
   <div class="container">
   	<div class="span6" style="float:left; text-align:center;">
-      <p><a id="left" class="btn btn-primary btn-lg" href="#" role="button"><span class="glyphicon glyphicon-eye-close"></span> &nbsp Hide</a></p>
+      <p><button id="left" class="btn btn-primary btn-lg" type="button" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo"><span class="glyphicon glyphicon-eye-close"></span> &nbsp Hide</button></p>
       <h4>Hide a tweet-sized message within a picture of your choice.</h4>
     </div>
 
   	<div class="span6" style="float:right;text-align:center">
-      <p><a id="right" class="btn btn-primary btn-lg" href="#" role="button"><span class="glyphicon glyphicon-eye-open"></span> &nbsp Reveal</a></p>
+      <p><button id="right" class="btn btn-primary btn-lg" type="button" data-toggle="modal" data-target="#exampleModal2" data-whatever="@fat"><span class="glyphicon glyphicon-eye-open"></span> &nbsp Reveal</button></p>
       <h4>Discover the secret your friend tried to share with you.</h4>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="exampleModalLabel">Enter your secret message and super safe password</h4>
+      </div>
+      <div class="modal-body">
+        <form>
+					<div class="form-group">
+						<label for="message-text" class="control-label">Message:</label>
+						<textarea class="form-control" id="message-text"></textarea>
+					</div>
+          <div class="form-group">
+            <label class="control-label">Password:</label>
+            <input type="text" class="form-control" id="recipient-name">
+          </div>
+					<div style="position:relative;">
+						<a class='btn btn-primary' href='javascript:;'>
+							Choose File...
+							<input type="file" style='position:absolute;z-index:2;top:0;left:0;filter: alpha(opacity=0);-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";opacity:0;background-color:transparent;color:transparent;' name="file_source" size="40"  onchange='$("#upload-file-info").html($(this).val());'>
+						</a>
+						&nbsp;
+						<span class='label label-info' id="upload-file-info"></span>
+					</div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary">Hide message</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="exampleModalLabel">Enter your secret message and super safe password</h4>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="form-group">
+            <label class="control-label">Password:</label>
+            <input type="text" class="form-control" id="recipient-name">
+          </div>
+					<div style="position:relative;">
+						<a class='btn btn-primary' href='javascript:;'>
+							Choose File...
+							<input type="file" style='position:absolute;z-index:2;top:0;left:0;filter: alpha(opacity=0);-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";opacity:0;background-color:transparent;color:transparent;' name="file_source" size="40"  onchange='$("#upload-file-info").html($(this).val());'>
+						</a>
+						&nbsp;
+						<span class='label label-info' id="upload-file-info"></span>
+					</div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary">Reveal message</button>
+      </div>
     </div>
   </div>
 </div>
 <footer>
   Made by Dor Rondel, Jane Chen, James Spann, Renzhentaxi Baerde for Hack(RPI); 2k15
 </footer>
+{% endblock %}
+
+{% block javascript %}
+<!--javascript -->
+<script>
+$('#exampleModal').on('show.bs.modal', function (event) {
+  var button = $(event.relatedTarget) // Button that triggered the modal
+  var recipient = button.data('whatever') // Extract info from data-* attributes
+  // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
+  // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+  var modal = $(this)
+  modal.find('.modal-title').text('Enter Your Secret Message and Super Safe Password')
+  //modal.find('.modal-body input').val(recipient)
+});
+
+$('#exampleModal2').on('show.bs.modal', function (event) {
+  var button = $(event.relatedTarget) // Button that triggered the modal
+  var recipient = button.data('whatever') // Extract info from data-* attributes
+  // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
+  // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+  var modal = $(this)
+  modal.find('.modal-title').text('Enter the Super Safe Password You Were Given')
+  //modal.find('.modal-body input').val(recipient)
+})
+</script>
 {% endblock %}
