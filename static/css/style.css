@@ -1,23 +1,42 @@
-html, body {
-    margin: 0;
-    padding: 0;
+html {;
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 50px;
 }
 
 header {
-    background: url(http://www.icedgraphics.com/wp-content/uploads/2012/02/grey-background.jpg);
-    background-size: cover;
-    margin-top: -20px;
-    padding-bottom: 60px;
+  background: url(http://www.icedgraphics.com/wp-content/uploads/2012/02/grey-background.jpg);
+  background-size: cover;
+  margin-top: -20px;
+  padding-bottom: 60px;
 }
 
 footer {
-    background: url(http://www.icedgraphics.com/wp-content/uploads/2012/02/grey-background.jpg);
-    background-size: cover;
-    margin-top: 0px;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    text-align: center;
-    color: #000;
+  position: absolute;
+  bottom: 0px;
+  width: 100%;
+  height: 50px;
+  background: url(http://www.icedgraphics.com/wp-content/uploads/2012/02/grey-background.jpg);
+  background-size: cover;
+  text-align: center;
+  color: #000;
+  font-size: 17px;
+  padding-top: 0.8em;
+}
+
+h1 {
+  font-size: 80px;
+  color: #99c089;
+  font-family: Montserrat;
+}
+
+h2 {
+  font-size: 50px;
+  color: #000;
+  font-family:  Montserrat;
 }
 
 .logo {
@@ -59,6 +78,13 @@ ul {
   text-align: center;
   color: #99c089;
   padding-bottom: 60px;
+}
+
+#error {
+  text-align: center;
+  position: absolute;
+  width: 100%;
+  padding: 100px;
 }
 
 #btnInfo {
