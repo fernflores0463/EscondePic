@@ -1,7 +1,22 @@
 {% extends 'layout.html' %}
 
-{% block title%} Home {% endblock %}
+{% block title %} Home {% endblock %}
+
+{% block stylesheet %}
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+	<link href='http://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'/>
+{% endblock %}
 
 {% block body %}
-<h1> {{ text }} </h1>
+<header>
+    <ul>
+      <li id="pic">
+          <img class="logo" src="http://i.istockimg.com/file_thumbview_approve/51584512/3/stock-illustration-51584512-magnifying-glass-icon.jpg"></img>
+      </li>
+
+      <li>
+        <h1 style="font-size: 80px; color: #99c089; font-family: Montserrat;"><font color="#fff">Esconde</font>Pic</h1>
+      </li>
+    </ul>
+</header>
 {% endblock %}
