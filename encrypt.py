@@ -1,7 +1,6 @@
 
 from PIL import Image
 import random
-import randomImage
 
 def get_seed(password):
     seed = 0
