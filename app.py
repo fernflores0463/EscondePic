@@ -53,8 +53,6 @@ def uploaded_file(filename):
     return send_from_directory(app.config['UPLOAD_FOLDER'],
                                filename)
 
-
-
 @app.route('/result')
 def result():
     return render_template('result.html', text="Hello HackRPI")
